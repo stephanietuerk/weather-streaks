@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
 import { csv } from 'd3-fetch';
-import D3LineChart from './components/D3LineChart';
 import D3CalendarChart from './components/D3CalendarChart';
 import sourceData from './data/blue_hill_data.csv';
 import * as moment from 'moment';

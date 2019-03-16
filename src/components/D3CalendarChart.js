@@ -36,6 +36,14 @@ export default class D3CalendarChart extends Component {
             .domain([colorVarMin, colorVarMax])
             .interpolate(interpolateHcl)
             .range([rgb("#007AFF"), rgb('#FFF500')]);
+
+        const tooltip = select(node)
+            .append("div")
+            .style("position", "absolute")
+            .style("z-index", "10")
+            .style("visibility", "hidden")
+            .style("background", "#000")
+            .text("a simple tooltip");
         
         select(node)
             .selectAll('circle')
