@@ -18,7 +18,7 @@ export default class App extends Component {
       data: [],
       colorVar: 'avgTemp'
     };
-    this.onHover = this.onHover.bind(this);
+    // this.onHover = this.onHover.bind(this);
   };
 
   componentDidMount() {
@@ -49,44 +49,44 @@ export default class App extends Component {
         }
       };
     });
-    console.log(await data);
-    const groupByProp = 'dayOfYear';
-    const dataAvgs = DataFunctions.getAverages(await data, groupByProp);
-    console.log(dataAvgs);
+    // console.log(await data);
+    // const groupByProp = 'dayOfYear';
+    // const dataAvgs = DataFunctions.getAverages(await data, groupByProp);
+    // console.log(dataAvgs);
     this.setState({
       data: await data,
-      dataAvgs: await dataAvgs
+      // dataAvgs: await dataAvgs
     });
   }
 
-  onHover(x, y, object) {
-    console.log(x, y);
-    this.setState({ x, y, hoveredObject: object });
-  }
+  // onHover(x, y, object) {
+  //   console.log(x, y);
+  //   this.setState({ x, y, hoveredObject: object });
+  // }
 
-  renderTooltip() {
-    const { hoveredObject, x, y } = this.state;
-    console.log( x, y, hoveredObject );
-    return (
-      hoveredObject && (
-        <div
-          className="tooltip"
-          style={{
-            ...tooltipStyle,
-            transform: `translate(${x}px, ${y}px)`
-          }}
-        >
-          <div>
-            {moment(hoveredObject.date, "YYYY-MM-DD").format('MMM DD YYYY')}
-          </div>
-          <div>
-            <b>{this.state.colorVar}:</b>
-            {hoveredObject.dataVals[this.state.colorVar]}
-          </div>
-        </div>
-      )
-    );
-  }
+  // renderTooltip() {
+  //   const { hoveredObject, x, y } = this.state;
+  //   console.log( x, y, hoveredObject );
+  //   return (
+  //     hoveredObject && (
+  //       <div
+  //         className="tooltip"
+  //         style={{
+  //           ...tooltipStyle,
+  //           transform: `translate(${x}px, ${y}px)`
+  //         }}
+  //       >
+  //         <div>
+  //           {moment(hoveredObject.date, "YYYY-MM-DD").format('MMM DD YYYY')}
+  //         </div>
+  //         <div>
+  //           <b>{this.state.colorVar}:</b>
+  //           {hoveredObject.dataVals[this.state.colorVar]}
+  //         </div>
+  //       </div>
+  //     )
+  //   );
+  // }
 
 
 
@@ -101,13 +101,13 @@ export default class App extends Component {
             xVar={'year'}
             yVar={'dayOfYear'}
             colorVar={this.state.colorVar}
-            dotRadius={3}
+            dotRadius={2}
             data={this.state.data}
             size={[1000,4000]}
-            onHover={this.onHover}
+            // onHover={this.onHover}
 
           />
-          {this.renderTooltip()}
+          {/* {this.renderTooltip()} */}
           {/* <D3CalendarDiffsChart
             xVar={'year'}
             yVar={'dayOfYear'}
